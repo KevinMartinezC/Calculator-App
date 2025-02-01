@@ -39,7 +39,7 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: Colors.darkGray,
     borderRadius: 100,
     justifyContent: 'center',
-    marginHorizontal: 10
+    marginHorizontal: 5
   },
 
   buttonText: {
