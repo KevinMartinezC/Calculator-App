@@ -7,7 +7,7 @@ enum Operator {
   devide = "%",
 }
 export const useCalculator = () => {
-  const [formula, setFormula] = useState("");
+  const [formula, setFormula] = useState("0");
   const [number, setNumber] = useState("0");
   const [prevNumber, setPrevNumber] = useState("0");
 
@@ -15,6 +15,36 @@ export const useCalculator = () => {
     //Todo calcular subresultado
     setFormula(number);
   }, [number]);
+
+  const clean = () => {
+    setFormula("0");
+    setNumber("0");
+    setFormula("0");
+    lastOperation.current = undefined;
+  };
+
+  const toggleSign = () => {
+    if (number.includes("-")) {
+      return setNumber(number.replace("-", ""));
+    }
+
+    setNumber("-" + number);
+  };
+
+  const deleteLast = () => {
+    let currentSign = "";
+    let temporalNumber = number;
+
+    if (number.includes("-")) {
+      currentSign = "-";
+      temporalNumber = number.substring(1);
+    }
+
+    if (temporalNumber.length > 1) {
+      return setNumber(currentSign + temporalNumber.slice(0, -1));
+    }
+    setNumber("0");
+  };
 
   const buildNumber = (numberString: string) => {
     //Verificar si ya existe el . decimal
@@ -56,5 +86,8 @@ export const useCalculator = () => {
 
     //methods
     buildNumber,
+    clean,
+    toggleSign,
+    deleteLast,
   };
 };
