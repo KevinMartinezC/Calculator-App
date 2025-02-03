@@ -15,6 +15,10 @@ const CalculatorApp = () => {
     clean,
     toggleSign,
     deleteLast,
+    devideOperation,
+    multiplyOperation,
+    subtractOperation,
+    addOperation,
   } = useCalculator();
 
   return (
@@ -22,7 +26,11 @@ const CalculatorApp = () => {
       {/* Main Result */}
       <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
         <ThemeText>{formula}</ThemeText>
-        <ThemeText variant="h2">500</ThemeText>
+        {formula === prevNumber ? (
+          <ThemeText variant="h2"> </ThemeText>
+        ) : (
+          <ThemeText variant="h2">{prevNumber}</ThemeText>
+        )}
       </View>
       {/* Buttons */}
       <View style={globalStyles.row}>
@@ -47,7 +55,11 @@ const CalculatorApp = () => {
           onPress={deleteLast}
         />
 
-        <CalculatorButton label="+" color={Colors.orange} onPress={() => {}} />
+        <CalculatorButton
+          label="%"
+          color={Colors.orange}
+          onPress={devideOperation}
+        />
       </View>
 
       <View style={globalStyles.row}>
@@ -69,7 +81,11 @@ const CalculatorApp = () => {
             buildNumber("9");
           }}
         />
-        <CalculatorButton label="x" color={Colors.orange} onPress={() => {}} />
+        <CalculatorButton
+          label="x"
+          color={Colors.orange}
+          onPress={multiplyOperation}
+        />
       </View>
 
       <View style={globalStyles.row}>
@@ -91,7 +107,11 @@ const CalculatorApp = () => {
             buildNumber("6");
           }}
         />
-        <CalculatorButton label="-" color={Colors.orange} onPress={() => {}} />
+        <CalculatorButton
+          label="-"
+          color={Colors.orange}
+          onPress={subtractOperation}
+        />
       </View>
 
       <View style={globalStyles.row}>
@@ -113,7 +133,11 @@ const CalculatorApp = () => {
             buildNumber("3");
           }}
         />
-        <CalculatorButton label="+" color={Colors.orange} onPress={() => {}} />
+        <CalculatorButton
+          label="+"
+          color={Colors.orange}
+          onPress={addOperation}
+        />
       </View>
 
       <View style={globalStyles.row}>
