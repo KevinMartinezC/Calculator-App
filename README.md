@@ -1,7 +1,16 @@
 # Welcome to Calculator App👋
+<img width="200" alt="Screenshot 2025-02-03 at 1 47 42 PM" src="https://github.com/user-attachments/assets/4df86c7f-51b4-46fa-a573-afff3c564547" />
+
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
+🚀 Features
+- ✅ Basic arithmetic operations (addition, subtraction, multiplication, division)
+- ✅ Responsive UI with styled buttons
+- ✅ Supports decimal numbers & sign toggling
+- ✅ Delete last input & reset calculation
+- ✅ Built using Expo for easy cross-platform deployment
+  
 ## Get started
 
 1. Install dependencies
