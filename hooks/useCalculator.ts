@@ -72,24 +72,9 @@ export const useCalculator = () => {
     setNumber("0");
   };
 
-  const divideOperation = () => {
+  const handleOperation = (operation: Operator) => {
     setLastNumber();
-    lastOperation.current = Operator.divide;
-  };
-
-  const multiplyOperation = () => {
-    setLastNumber();
-    lastOperation.current = Operator.multiply;
-  };
-
-  const subtractOperation = () => {
-    setLastNumber();
-    lastOperation.current = Operator.subtract;
-  };
-
-  const addOperation = () => {
-    setLastNumber();
-    lastOperation.current = Operator.add;
+    lastOperation.current = operation;
   };
 
   const calculateSubResult = () => {
@@ -162,10 +147,10 @@ export const useCalculator = () => {
     clean,
     toggleSign,
     deleteLast,
-    divideOperation,
-    multiplyOperation,
-    subtractOperation,
-    addOperation,
     calculateResult,
+    divideOperation: () => handleOperation(Operator.divide),
+    multiplyOperation: () => handleOperation(Operator.multiply),
+    subtractOperation: () => handleOperation(Operator.subtract),
+    addOperation: () => handleOperation(Operator.add),
   };
 };
