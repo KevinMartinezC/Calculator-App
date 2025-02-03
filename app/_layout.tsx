@@ -1,19 +1,19 @@
-import { Platform, View } from 'react-native'
-import { useFonts } from 'expo-font'
-import { StatusBar } from 'expo-status-bar'
-import { Slot } from 'expo-router'
-import { globalStyles } from '@/styles/global-styles'
-import * as NavigationBar from 'expo-navigation-bar';
+import { Platform, View } from "react-native";
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { Slot } from "expo-router";
+import { globalStyles } from "@/styles/global-styles";
+import * as NavigationBar from "expo-navigation-bar";
 
-const isAndroid = Platform.OS === 'android';
+const isAndroid = Platform.OS === "android";
 
 if (isAndroid) {
-  NavigationBar.setBackgroundColorAsync('black');
+  NavigationBar.setBackgroundColorAsync("black");
 }
 
 const RootLayout = () => {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
   if (!loaded) {
@@ -23,9 +23,9 @@ const RootLayout = () => {
   return (
     <View style={globalStyles.background}>
       <Slot />
-      <StatusBar style= 'light'/>
+      <StatusBar style="light" />
     </View>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;
